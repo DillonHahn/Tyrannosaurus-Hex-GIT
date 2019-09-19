@@ -41,6 +41,10 @@ public:
 
   void Handle_Message(const Message& msg);
 
+  void Serialize_Object(std::string);
+
+  std::string Deserialize_Object(std::string);
+
   
 
 private:

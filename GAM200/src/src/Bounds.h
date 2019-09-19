@@ -75,4 +75,6 @@ private:
 
     Transform* parent_;
 
+    void Serialize(std::string);
+
 };

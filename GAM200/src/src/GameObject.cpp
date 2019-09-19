@@ -19,6 +19,7 @@
 #include "Transform.h"
 #include "PhysicsBody.h"
 #include "Bounds.h"
+#include "Serialization.h"
 #include <string>
 
 GameObject::GameObject(std::string name)
@@ -35,4 +36,31 @@ void GameObject::GameObjectTestSetup()
   componentArray_[0] = trans;
   componentArray_[1] = phys;
   componentArray_[2] = bounds;
+}
+
+void GameObject::Serialize()
+{
+  std::string serString = Create_Serialize_String();
+  //Serialization::Serialize_Object(serString);
+}
+void GameObject::Deserialize()
+{
+
+}
+
+std::string GameObject::Create_Serialize_String()
+{
+  std::string serString = name_ + ", ";
+  int compSize = sizeof(componentArray_) / sizeof(componentArray_[1]);
+  for (int i = 0; i < compSize; ++i)
+  {
+    componentArray_[i]->Serialize(serString);
+  }
+
+  return serString;
+}
+
+void GameObject::Parse_Serialize_String(std::string inputString)
+{
+
 }

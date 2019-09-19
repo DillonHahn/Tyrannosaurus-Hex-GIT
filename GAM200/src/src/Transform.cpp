@@ -212,3 +212,21 @@ void Transform::CleanMtx()
 
 	isDirty_ = false;
 }
+
+/******************************************************************************/
+/*!
+  \brief
+  Serializes the transform into a string.
+
+*/
+/******************************************************************************/
+void Transform::Serialize(std::string inputString)
+{
+  inputString += "Transform(";
+
+  glm::vec2 translation_;
+  float     rotation_;
+  glm::vec2 scale_;
+  glm::mat3 mtx_;
+  bool      isDirty_;
+}

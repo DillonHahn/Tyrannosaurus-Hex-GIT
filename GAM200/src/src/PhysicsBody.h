@@ -61,4 +61,6 @@ private:
 
     float rotationalVelocity_;
 
+    void Serialize(std::string);
+
 };

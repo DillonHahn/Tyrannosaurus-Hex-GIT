@@ -25,9 +25,13 @@ public:
 
   GameObject(std::string name);
   void GameObjectTestSetup();
+  void Serialize();
+  void Deserialize();
 
 private:
   std::string name_;
   // TEMPORARY ARBITRARY SIZE //
   Component* componentArray_[3];
+  std::string Create_Serialize_String();
+  void Parse_Serialize_String(std::string);
 };
