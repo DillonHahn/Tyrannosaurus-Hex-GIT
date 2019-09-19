@@ -54,4 +54,5 @@ private:
 	glm::vec2 scale_;
 	glm::mat3 mtx_;
 	bool      isDirty_;
+  void Serialize(std::string);
 };

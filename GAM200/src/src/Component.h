@@ -47,6 +47,7 @@ public:
 	virtual void Tick(float dt) = 0;                      // Function to be called each tick
 	virtual void Handle_Message(const Message& msg) = 0;  // Message Handler
     virtual void Update(float dt) { (dt); };
+    virtual void Serialize(std::string) = 0;
 
 private:
     ComponentType type_;

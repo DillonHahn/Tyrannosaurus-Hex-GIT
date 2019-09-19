@@ -211,4 +211,21 @@ void PhysicsBody::Update(float dt)
   //  transform->Rotation(rotVelocity);
     
   //}
+
+  
+  
+}
+
+/******************************************************************************/
+/*!
+  \brief
+  Serializes the physics body into a string.
+
+*/
+/******************************************************************************/
+void PhysicsBody::Serialize(std::string inputString)
+{
+
+
+
 }

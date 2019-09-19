@@ -207,3 +207,15 @@ void Bounds::Update(float dt)
 {
 
 }
+
+/******************************************************************************/
+/*!
+  \brief
+  Serializes the bounds into a string.
+
+*/
+/******************************************************************************/
+void Bounds::Serialize(std::string inputString)
+{
+
+}
