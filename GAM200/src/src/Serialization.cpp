@@ -81,7 +81,7 @@ void Serialization::Serialize_Object(std::string)
 
 std::string Serialization::Deserialize_Object(std::string)
 {
-
+  return "";
 }
 
 /******************************************************************************/

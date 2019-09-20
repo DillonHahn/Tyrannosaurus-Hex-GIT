@@ -60,7 +60,7 @@ public:
     float Rotation() const;
     void Rotation(float rotation);
 
-
+    void Serialize(std::string&);
 
 private:
     BoundsType type_;
@@ -75,6 +75,6 @@ private:
 
     Transform* parent_;
 
-    void Serialize(std::string);
+    
 
 };

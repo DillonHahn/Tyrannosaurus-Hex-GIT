@@ -215,7 +215,36 @@ void Bounds::Update(float dt)
 
 */
 /******************************************************************************/
-void Bounds::Serialize(std::string inputString)
+void Bounds::Serialize(std::string& inputString)
 {
+  inputString += "Collider";
 
+  for (int i = 0; i < 5; ++i)
+  {
+    inputString += "\n";
+    switch (i)
+    {
+    case 0:
+      inputString += std::to_string(type_);
+      break;
+    case 1:
+      inputString += std::to_string(position_.x);
+      inputString += "\n";
+      inputString += std::to_string(position_.y);
+      break;
+    case 2:
+      inputString += std::to_string(offset_.x);
+      inputString += "\n";
+      inputString += std::to_string(offset_.y);
+      break;
+    case 3:
+      inputString += std::to_string(scale_.x);
+      inputString += "\n";
+      inputString += std::to_string(scale_.y);
+      break;
+    case 4:
+      inputString += std::to_string(rotation_);
+      break;
+    }
+  }
 }

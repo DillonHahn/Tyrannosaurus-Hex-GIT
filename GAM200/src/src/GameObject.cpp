@@ -21,6 +21,7 @@
 #include "Bounds.h"
 #include "Serialization.h"
 #include <string>
+#include <fstream>
 
 GameObject::GameObject(std::string name)
 {
@@ -41,7 +42,11 @@ void GameObject::GameObjectTestSetup()
 void GameObject::Serialize()
 {
   std::string serString = Create_Serialize_String();
-  //Serialization::Serialize_Object(serString);
+
+  std::fstream file;
+  file.open(name_ + ".txt", std::fstream::out);
+  file << serString;
+  file.close();
 }
 void GameObject::Deserialize()
 {
@@ -50,10 +55,11 @@ void GameObject::Deserialize()
 
 std::string GameObject::Create_Serialize_String()
 {
-  std::string serString = name_ + ", ";
+  std::string serString = name_;
   int compSize = sizeof(componentArray_) / sizeof(componentArray_[1]);
   for (int i = 0; i < compSize; ++i)
   {
+    serString += "\n";
     componentArray_[i]->Serialize(serString);
   }
 

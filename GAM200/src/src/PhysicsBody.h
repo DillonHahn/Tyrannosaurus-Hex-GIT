@@ -52,6 +52,8 @@ public:
 
     void Update(float dt);
 
+    void Serialize(std::string&);
+
 private:
     glm::vec2 velocity_;
 
@@ -61,6 +63,6 @@ private:
 
     float rotationalVelocity_;
 
-    void Serialize(std::string);
+    
 
 };

@@ -45,6 +45,8 @@ public:
 
 	virtual void Tick(float dt) {}
 	virtual void Handle_Message(const Message& msg) {}
+  
+  void Serialize(std::string&);
 
 private:
 	void CleanMtx();
@@ -54,5 +56,5 @@ private:
 	glm::vec2 scale_;
 	glm::mat3 mtx_;
 	bool      isDirty_;
-  void Serialize(std::string);
+  
 };
