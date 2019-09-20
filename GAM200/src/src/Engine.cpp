@@ -17,6 +17,9 @@
 #include "UnitTest.h"
 #include "Debug.h"
 
+//TEMP
+#include "GameObject.h"
+
 #include "Message.h"
 
 bool Engine::running_ = false;
@@ -43,6 +46,11 @@ void Engine::Init()
 
 	//UnitTestMessage transMsg(UT::C_TRANSFORM);
 	//transMsg.Send();
+
+  //TEMP
+  GameObject testObj("TestyBoi");
+  testObj.GameObjectTestSetup();
+  testObj.Serialize();
 }
 
 /******************************************************************************/

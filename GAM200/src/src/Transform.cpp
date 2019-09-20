@@ -12,6 +12,8 @@
 
 #include "Transform.h"
 #include "Debug.h"
+#include <iostream>
+#include <cstdio>
 
 /******************************************************************************/
 /*!
@@ -220,13 +222,42 @@ void Transform::CleanMtx()
 
 */
 /******************************************************************************/
-void Transform::Serialize(std::string inputString)
+void Transform::Serialize(std::string& inputString)
 {
-  inputString += "Transform(";
-
-  glm::vec2 translation_;
-  float     rotation_;
-  glm::vec2 scale_;
-  glm::mat3 mtx_;
-  bool      isDirty_;
+  inputString += "Transform";
+  
+  for (int i = 0; i < 5; ++i)
+  {
+    inputString += "\n";
+    switch (i)
+    {
+    case 0:
+      inputString += std::to_string(translation_.x);
+      inputString += "\n";
+      inputString += std::to_string(translation_.y);
+      break;
+    case 1:
+      inputString += std::to_string(rotation_);
+      break;
+    case 2:
+      inputString += std::to_string(scale_.x);
+      inputString += "\n";
+      inputString += std::to_string(scale_.y);
+      break;
+    case 3:
+      for (int j = 0; j < 3; ++j)
+      {
+        for (int k = 0; k < 3; ++k)
+        {
+          inputString += std::to_string(mtx_[j][k]);
+          if(j < 2 || k < 2)
+           inputString += "\n";
+        }
+      }
+      break;
+    case 4:
+      inputString += std::to_string(isDirty_);
+      break;
+    }
+  }
 }

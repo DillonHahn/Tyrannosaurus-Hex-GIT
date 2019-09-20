@@ -223,9 +223,33 @@ void PhysicsBody::Update(float dt)
 
 */
 /******************************************************************************/
-void PhysicsBody::Serialize(std::string inputString)
+void PhysicsBody::Serialize(std::string& inputString)
 {
+  inputString += "Physics";
 
-
-
+  for (int i = 0; i < 4; ++i)
+  {
+    inputString += "\n";
+    switch (i)
+    {
+    case 0:
+      inputString += std::to_string(acceleration_.x);
+      inputString += "\n";
+      inputString += std::to_string(acceleration_.y);
+      break;
+    case 1:
+      inputString += std::to_string(velocity_.x);
+      inputString += "\n";
+      inputString += std::to_string(velocity_.y);
+      break;
+    case 2:
+      inputString += std::to_string(oldTranslation_.x);
+      inputString += "\n";
+      inputString += std::to_string(oldTranslation_.y);
+      break;
+    case 3:
+      inputString += std::to_string(rotationalVelocity_);
+      break;
+    }
+  }
 }
