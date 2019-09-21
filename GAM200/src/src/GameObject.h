@@ -18,6 +18,8 @@
 
 #include "Component.h"
 #include <string>
+#include <cstdio>
+#include <vector>
 
 class GameObject
 {
@@ -31,7 +33,7 @@ public:
 private:
   std::string name_;
   // TEMPORARY ARBITRARY SIZE //
-  Component* componentArray_[3];
+  std::vector<Component*> componentArray_;
   std::string Create_Serialize_String();
   void Parse_Serialize_String(std::string);
 };

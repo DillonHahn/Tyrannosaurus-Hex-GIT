@@ -51,6 +51,7 @@ void Engine::Init()
   GameObject testObj("TestyBoi");
   testObj.GameObjectTestSetup();
   testObj.Serialize();
+  testObj.Deserialize();
 }
 
 /******************************************************************************/
