@@ -34,9 +34,9 @@ void GameObject::GameObjectTestSetup()
   PhysicsBody* phys = new PhysicsBody();
   Bounds* bounds = new Bounds();
 
-  componentArray_[0] = trans;
-  componentArray_[1] = phys;
-  componentArray_[2] = bounds;
+  componentArray_.push_back(trans);
+  componentArray_.push_back(phys);
+  componentArray_.push_back(bounds);
 }
 
 void GameObject::Serialize()
@@ -44,20 +44,37 @@ void GameObject::Serialize()
   std::string serString = Create_Serialize_String();
 
   std::fstream file;
-  file.open(name_ + ".txt", std::fstream::out);
+  file.open("gameObjects\\" + name_ + ".txt", std::fstream::out);
   file << serString;
   file.close();
 }
+
 void GameObject::Deserialize()
 {
+  std::string serString = "";
+  std::fstream file;
+  file.open("gameObjects\\" + name_ + ".txt");
+  while (!file.eof())
+  {
+    std::string curWord;
+    file >> curWord;
+    serString += curWord;
+    serString += "\n";
+  }
+  file.close();
 
+  Parse_Serialize_String(serString);
+
+  /*std::fstream outFile;
+  outFile.open("gameObjects\\" + name_ + "DE.txt", std::fstream::out);
+  outFile << serString;
+  outFile.close();*/
 }
 
 std::string GameObject::Create_Serialize_String()
 {
   std::string serString = name_;
-  int compSize = sizeof(componentArray_) / sizeof(componentArray_[1]);
-  for (int i = 0; i < compSize; ++i)
+  for (int i = 0; i < componentArray_.size(); ++i)
   {
     serString += "\n";
     componentArray_[i]->Serialize(serString);
@@ -68,5 +85,16 @@ std::string GameObject::Create_Serialize_String()
 
 void GameObject::Parse_Serialize_String(std::string inputString)
 {
-
+  std::string curString = "";
+  for(int i = 0; i < inputString.size(); ++i)
+  {
+    if (inputString[i] != '\n')
+    {
+      curString += inputString[i];
+    }
+    else
+    {
+      if(curString)
+    }
+  }
 }
